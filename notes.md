@@ -22,3 +22,24 @@ node js => It is js runtime that runs js outside the browser or runs js on the s
 we have two types of modules es6(ecma script) modules & commonjs modules.
 
 by default node js uses common js modules.
+
+
+The Module wrapper => Before the module's code is executed node js will wrap it in a function wrapper.
+By doing this, Node.js achieves a few things:
+
+It keeps top-level variables (defined with var, const, or let) scoped to the module rather than the global object.
+It helps to provide some global-looking variables that are actually specific to the module, such as:
+The module and exports objects that the implementor can use to export values from the module.
+The convenience variables **filename and **dirname, containing the module's absolute filename and directory path.
+
+\_\_dirname => It returns name of the directory of the current module.This is same as path.dirname().
+
+
+
+
+// File System module (fs) => It enables us interacting with the file system in a modeled way
+// on standard POSIX functions.
+
+It is of two types promise based & callback based.
+Promise based returns a promise that is fullfilled when asynchronous operation completes.
+All file system operations have synchronous, callback, and promise-based forms, and are accessible using both CommonJS syntax and ES6 Modules (ESM).
