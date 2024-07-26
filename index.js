@@ -1,12 +1,13 @@
 //The createServer() method of http creates a new HTTP server and returns it.
 
-const { createServer } = require("node:http"); 
+const { createServer } = require("node:http");
 const port = 3000;
-const server = createServer((req, res) => {
-  res.statusCode = 200; //statusCode property to 200, to indicate a successful response
-  res.setHeader("Content-Type", "text/plain");//We set the Content-Type header: denoting type of response.
-  let sayMyName = "Rohit";
-  res.end(`Hello node js , This is my first time . ${sayMyName}`);//adding the content as an argument to end():
+const server = createServer(async (req, res) => {
+  const request = await fetch("https://dummyjson.com/products");
+  const data = await request.json();
+  console.log(data);
+  // res.writeHead(200, { "Content-Type": "application/json" });
+  res.write(JSON.stringify(data));
 });
 
 server.listen(port, () => {
